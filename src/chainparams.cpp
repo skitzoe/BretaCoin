@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
+// Copyright (c) 2017-2025 The Breta Core developers &
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -188,9 +188,9 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90"));
         assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
 
-        vSeeds.emplace_back("seed-raven.bitactivate.com", false);
-        vSeeds.emplace_back("seed-raven.ravencoin.com", false);
-        vSeeds.emplace_back("seed-raven.ravencoin.org", false);
+        vSeeds.emplace_back("seed-Breta.bitactivate.com", false);
+        vSeeds.emplace_back("seed-Breta1.thebretaclan.club", false);
+        vSeeds.emplace_back("seed-Breta1.thebretaclan.club", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
@@ -198,7 +198,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        // Raven BIP44 cointype in mainnet is '175'
+        // Breta BIP44 cointype in mainnet is '175'
         nExtCoinType = 175;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -220,7 +220,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Raven chain
+            // Update as we know more about the contents of the Breta chain
             // Stats as of 0x00000000000016ec03d8d93f9751323bcc42137b1b4df67e6a11c4394fd8e5ad window size 43200
             1577939273, // * UNIX timestamp of last known number of transactions
             6709969,    // * total number of transactions between genesis and that timestamp
@@ -228,28 +228,33 @@ public:
             0.1       // * estimated number of transactions per second after that timestamp
         };
 
-        /** RVN Start **/
-        // Burn Amounts
-        nIssueAssetBurnAmount = 500 * COIN;
-        nReissueAssetBurnAmount = 100 * COIN;
-        nIssueSubAssetBurnAmount = 100 * COIN;
-        nIssueUniqueAssetBurnAmount = 5 * COIN;
-        nIssueMsgChannelAssetBurnAmount = 100 * COIN;
-        nIssueQualifierAssetBurnAmount = 1000 * COIN;
-        nIssueSubQualifierAssetBurnAmount = 100 * COIN;
-        nIssueRestrictedAssetBurnAmount = 1500 * COIN;
-        nAddNullQualifierTagBurnAmount = .1 * COIN;
+/** BRETA Start **/
+// Adjust burn amounts to fit your fork's economic model
+
+nIssueAssetBurnAmount = 420 * COIN;               // Burn 420 BRETA to issue a new asset (adjustable)
+nReissueAssetBurnAmount = 80 * COIN;              // Burn 84 BRETA to reissue asset supply (adjustable)
+nIssueSubAssetBurnAmount = 80 * COIN;             // Burn 84 BRETA to issue sub-assets (adjustable)
+nIssueUniqueAssetBurnAmount = 5 * COIN;            // Burn 4 BRETA to issue unique assets (adjustable)
+nIssueMsgChannelAssetBurnAmount  = 80 * COIN;      // Burn 84 BRETA to issue messaging channels (adjustable)
+nIssueQualifierAssetBurnAmount = 840 * COIN;      // Burn 840 BRETA to issue qualifiers (adjustable)
+nIssueSubQualifierAssetBurnAmount = 84 * COIN;    // Burn 84 BRETA to issue sub-qualifiers (adjustable)
+nIssueRestrictedAssetBurnAmount = 1260 * COIN;    // Burn 1260 BRETA to issue restricted assets (adjustable)
+nAddNullQualifierTagBurnAmount = 0.420 * COIN;   // Burn 0.042 BRETA to add null qualifier tags (adjustable)
+
 
         // Burn Addresses
-        strIssueAssetBurnAddress = "RXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
-        strReissueAssetBurnAddress = "RXReissueAssetXXXXXXXXXXXXXXVEFAWu";
-        strIssueSubAssetBurnAddress = "RXissueSubAssetXXXXXXXXXXXXXWcwhwL";
-        strIssueUniqueAssetBurnAddress = "RXissueUniqueAssetXXXXXXXXXXWEAe58";
-        strIssueMsgChannelAssetBurnAddress = "RXissueMsgChanneLAssetXXXXXXSjHvAY";
-        strIssueQualifierAssetBurnAddress = "RXissueQuaLifierXXXXXXXXXXXXUgEDbC";
-        strIssueSubQualifierAssetBurnAddress = "RXissueSubQuaLifierXXXXXXXXXVTzvv5";
-        strIssueRestrictedAssetBurnAddress = "RXissueRestrictedXXXXXXXXXXXXzJZ1q";
-        strAddNullQualifierTagBurnAddress = "RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya";
+
+ReissueAsset: C4bUNxki2GZRzBoMoh7YfRXdQpXziCjt4F
+AddNullQualifierTag: CAvkapKKAvgEDeH34U8AwjXDLD8cBGinZ3
+GlobalBurn: C96porQjbs69JYR4u5kc1g38aRkS4MWNJF
+IssueAsset: C9WszeQA39sgvt3zy4aAoUupQsi2z6zKxE
+IssueRestrictedAsset: C3rfkxZC5WQ5beHcysy37td2YAHmTeMcUZ
+IssueMsgChannelAsset: C3umkVKTezn9qGp1FRUwzqYqxXr2Bbz1cn
+IssueUniqueAsset: ByS4ZVjdgSsLFnfZuDjnMyNTfLS4LtuYXj
+IssueQualifierAsset: C2Jqaie1fDhhAvJC9fePJk12so435Gj4GK
+IssueSubAsset: C5Roah6M6oWf5qNmY89tLzCVzB6k6DGexX
+IssueSubQualifierAsset: CDCEXExYCD7JSRr9pM2GwKCuaYSGokCE3s
+
 
             //Global Burn Address
         strGlobalBurnAddress = "RXBurnXXXXXXXXXXXXXXXXXXXXXXWUo9FV";
@@ -411,9 +416,9 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.emplace_back("seed-testnet-raven.bitactivate.com", false);
-        vSeeds.emplace_back("seed-testnet-raven.ravencoin.com", false);
-        vSeeds.emplace_back("seed-testnet-raven.ravencoin.org", false);
+        vSeeds.emplace_back("seed-testnet-Breta.bitactivate.com", false);
+        vSeeds.emplace_back("seed-testnet-Breta.thebretaclan.club", false);
+        vSeeds.emplace_back("seed-testnet-Breta.Bretacoin.org", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -421,7 +426,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Raven BIP44 cointype in testnet
+        // Breta BIP44 cointype in testnet
         nExtCoinType = 1;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -441,7 +446,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Raven chain
+            // Update as we know more about the contents of the Breta chain
             // Stats as of 00000023b66f46d74890287a7b1157dd780c7c5fdda2b561eb96684d2b39d62e window size 43200
             1543633332, // * UNIX timestamp of last known number of transactions
             146666,     // * total number of transactions between genesis and that timestamp
@@ -648,7 +653,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Raven BIP44 cointype in regtest
+        // Breta BIP44 cointype in regtest
         nExtCoinType = 1;
 
         /** RVN Start **/
