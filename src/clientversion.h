@@ -1,54 +1,18 @@
-// Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+// BretaCoin (BRETA) - clientversion.h snippet
+// Modify version strings, client name, and copyright notices here.
+// Replace the corresponding definitions in upstream clientversion.h
 
-#ifndef RAVEN_CLIENTVERSION_H
-#define RAVEN_CLIENTVERSION_H
+#ifndef CLIENTVERSION_H
+#define CLIENTVERSION_H
 
-#if defined(HAVE_CONFIG_H)
-#include "config/raven-config.h"
-#endif //HAVE_CONFIG_H
+// Editable client display strings
+#define CLIENT_NAME "BretaCoin"    // <-- GUI/daemon display name
+#define CLIENT_TICKER "BRETA"      // <-- Ticker symbol used in UI/RPC
 
-// Check that required client information is defined
-#if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
-#error Client version information missing: version is not defined by raven-config.h or in any other way
-#endif
+// Version numbers (major, minor, revision, build) — keep consistent with your release policy
+static const int CLIENT_VERSION_MAJOR = 0;
+static const int CLIENT_VERSION_MINOR = 1;
+static const int CLIENT_VERSION_REVISION = 0;
+static const int CLIENT_VERSION_BUILD = 0;
 
-/**
- * Converts the parameter X to a string after macro replacement on X has been performed.
- * Don't merge these into one macro!
- */
-#define STRINGIZE(X) DO_STRINGIZE(X)
-#define DO_STRINGIZE(X) #X
-
-//! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
-
-/**
- * ravend-res.rc includes this file, but it cannot cope with real c++ code.
- * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
- * Anything other than a define should be guarded below.
- */
-
-#if !defined(WINDRES_PREPROC)
-
-#include <string>
-#include <vector>
-
-static const int CLIENT_VERSION =
-                           1000000 * CLIENT_VERSION_MAJOR
-                         +   10000 * CLIENT_VERSION_MINOR
-                         +     100 * CLIENT_VERSION_REVISION
-                         +       1 * CLIENT_VERSION_BUILD;
-
-extern const std::string CLIENT_NAME;
-extern const std::string CLIENT_BUILD;
-
-
-std::string FormatFullVersion();
-std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments);
-
-#endif // WINDRES_PREPROC
-
-#endif // RAVEN_CLIENTVERSION_H
+#endif // CLIENTVERSION_H
