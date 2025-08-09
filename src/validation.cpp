@@ -1322,16 +1322,15 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
-    // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 500 * COIN;
-    // Subsidy is cut in half every 2,100,000 blocks which will occur approximately every 4 years.
+    CAmount nSubsidy = 500 * COIN;  // 500 BRETA initial reward
+
+    // Halve the subsidy according to halvings
     nSubsidy >>= halvings;
     return nSubsidy;
 }
-
 bool IsInitialBlockDownload()
 {
     // Once this function has returned false, it must remain false.
