@@ -1,3 +1,5 @@
+// clientversion.h - BretaCoin fork
+
 #ifndef CLIENTVERSION_H
 #define CLIENTVERSION_H
 
@@ -5,7 +7,7 @@
 #define CLIENT_NAME "BretaCoin"    // <-- GUI/daemon display name
 #define CLIENT_TICKER "BRETA"      // <-- Ticker symbol used in UI/RPC
 
-// Version macros (already present in your file, kept here for context)
+// Version macros (editable)
 #ifndef CLIENT_VERSION_MAJOR
 #define CLIENT_VERSION_MAJOR 4  // BretaCoin major version
 #endif
@@ -23,7 +25,7 @@
 #endif
 
 // -------------------------------------------------------------
-// Define CLIENT_VERSION as a combined integer for serialization
+// Combined version integer for serialization, editable if needed
 #ifndef CLIENT_VERSION
 #define CLIENT_VERSION \
     (1000000 * CLIENT_VERSION_MAJOR + 10000 * CLIENT_VERSION_MINOR + 100 * CLIENT_VERSION_REVISION + CLIENT_VERSION_BUILD)
@@ -31,7 +33,7 @@
 
 #include <string>
 
-// Declare FormatFullVersion function to return human-readable version string
+// Declare FormatFullVersion function for human-readable version string
 std::string FormatFullVersion();
 
 #endif // CLIENTVERSION_H
