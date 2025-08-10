@@ -80,9 +80,12 @@ static std::string FormatVersion(int nVersion)
 
 std::string FormatFullVersion()
 {
-    return CLIENT_BUILD;
+    return strprintf("%d.%d.%d.%d",
+                     CLIENT_VERSION_MAJOR,
+                     CLIENT_VERSION_MINOR,
+                     CLIENT_VERSION_REVISION,
+                     CLIENT_VERSION_BUILD);
 }
-
 /**
  * Format the subversion field according to BIP 14 spec (https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki)
  */
