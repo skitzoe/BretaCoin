@@ -4,7 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "clientversion.h"  // Make sure the header that declares FormatFullVersion() is included
+
+#include "clientversion.h"  // Make sure FormatFullVersion and CLIENT_VERSION are visible
 
 #if defined(HAVE_CONFIG_H)
 #include "config/raven-config.h"
