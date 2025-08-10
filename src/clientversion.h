@@ -1,7 +1,3 @@
-// BretaCoin (BRETA) - clientversion.h snippet
-// Modify version strings, client name, and copyright notices here.
-// Replace the corresponding definitions in upstream clientversion.h
-
 #ifndef CLIENTVERSION_H
 #define CLIENTVERSION_H
 
@@ -9,7 +5,7 @@
 #define CLIENT_NAME "BretaCoin"    // <-- GUI/daemon display name
 #define CLIENT_TICKER "BRETA"      // <-- Ticker symbol used in UI/RPC
 
-// Use the values from raven-config.h if they exist, otherwise define defaults
+// Version macros (already present in your file, kept here for context)
 #ifndef CLIENT_VERSION_MAJOR
 #define CLIENT_VERSION_MAJOR 4  // BretaCoin major version
 #endif
@@ -26,5 +22,16 @@
 #define CLIENT_VERSION_BUILD 0
 #endif
 
+// -------------------------------------------------------------
+// Define CLIENT_VERSION as a combined integer for serialization
+#ifndef CLIENT_VERSION
+#define CLIENT_VERSION \
+    (1000000 * CLIENT_VERSION_MAJOR + 10000 * CLIENT_VERSION_MINOR + 100 * CLIENT_VERSION_REVISION + CLIENT_VERSION_BUILD)
+#endif
+
+#include <string>
+
+// Declare FormatFullVersion function to return human-readable version string
+std::string FormatFullVersion();
 
 #endif // CLIENTVERSION_H
