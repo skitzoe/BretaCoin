@@ -9,10 +9,22 @@
 #define CLIENT_NAME "BretaCoin"    // <-- GUI/daemon display name
 #define CLIENT_TICKER "BRETA"      // <-- Ticker symbol used in UI/RPC
 
-// Version numbers (major, minor, revision, build) — keep consistent with your release policy
-static const int CLIENT_VERSION_MAJOR = 0;
-static const int CLIENT_VERSION_MINOR = 1;
-static const int CLIENT_VERSION_REVISION = 0;
-static const int CLIENT_VERSION_BUILD = 0;
+// Use the values from raven-config.h if they exist, otherwise define defaults
+#ifndef CLIENT_VERSION_MAJOR
+#define CLIENT_VERSION_MAJOR 4  // BretaCoin major version
+#endif
+
+#ifndef CLIENT_VERSION_MINOR
+#define CLIENT_VERSION_MINOR 7  // BretaCoin minor version
+#endif
+
+#ifndef CLIENT_VERSION_REVISION
+#define CLIENT_VERSION_REVISION 0
+#endif
+
+#ifndef CLIENT_VERSION_BUILD
+#define CLIENT_VERSION_BUILD 0
+#endif
+
 
 #endif // CLIENTVERSION_H
